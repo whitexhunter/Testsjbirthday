@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sanskruti 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+body { margin:0; font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #fce4ec, #ede7f6); overflow-x:hidden; position:relative; }
+
+/* Countdown Overlay */
+#countdownOverlay {
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(to right, #4a148c, #880e4f);
+  color: #fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  text-align:center;
+  font-family: 'Dancing Script', cursive;
+}
+#countdownOverlay h1 { font-size:3em; margin-bottom:20px; }
+#countdownOverlay p { font-size:1.5em; }
+
+/* Existing Styles ... */
+#intro {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(to right, #f8bbd0, #e1bee7);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  z-index:100; text-align:center;
+}
+#intro h1 { font-family: 'Dancing Script', cursive; font-size:2.5em; color:#d81b60; margin-bottom:20px; }
+#intro button { background:#d81b60; color:white; border:none; padding:15px 30px; border-radius:30px; font-size:1.2em; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+
+section { padding: 60px 20px; text-align: center; }
+h1, h2, h3 { font-family: 'Dancing Script', cursive; color:#d81b60; }
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(to right, #f8bbd0, #e1bee7); position:relative; }
+.hero h1 { font-size: 3em; text-shadow: 0 0 10px #fff; }
+
+.flashcard-gallery { position: relative; max-width: 320px; margin: auto; }
+.flashcard { display:none; }
+.flashcard img { width:100%; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+.caption { text-align:center; font-family:'Dancing Script', cursive; color:#d81b60; margin-top:10px; font-size:1.3em; font-weight:600; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 12px; margin-top: -22px; color: white; font-weight: bold; font-size: 18px; border-radius: 0 3px 3px 0; user-select: none; background: rgba(216,27,96,0.6); }
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background: rgba(216,27,96,0.9); }
+
+.special-msg { max-width:600px; margin:auto; background:#fff8f8; padding:30px; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); font-family: 'Great Vibes', cursive; font-size:1.3em; color:#4a148c; }
+.cake { font-size:4em; }
+.candle { display:inline-block; transition: opacity 1s ease; }
+.candle.out { opacity:0; }
+button { background:#d81b60; color:white; border:none; padding:15px 25px; border-radius:30px; font-size:1em; cursor:pointer; margin:10px; }
+.timeline { max-width:800px; margin:auto; text-align:left; }
+.timeline div { margin:20px 0; padding:10px; border-left:3px solid #d81b60; padding-left:15px; }
+.ending { font-size:2em; color:#c2185b; margin-top:40px; position:relative; }
+
+.effect-container { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10; overflow:hidden; }
+.confetti, .heart, .sparkle { position:absolute; opacity:0.8; font-size:18px; animation-iteration-count: infinite; animation-timing-function: linear; }
+@keyframes fallSway { 0% { transform: translateY(-10vh) translateX(0); opacity:0; } 10% { opacity:1; } 50% { transform: translateY(50vh) translateX(20px); } 90% { opacity:1; } 100% { transform: translateY(100vh) translateX(-20px); opacity:0; }
+
+/* ✅ Fixed Popup */
+.popup { 
+  display: none; 
+  position: fixed; 
+  z-index: 10000; /* ensure it stays above everything */
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: rgba(0,0,0,0.6); 
+  animation: fadeIn 0.5s; 
+}
+.popup-content { background: #fff; margin: 8% auto; padding: 30px; width: 85%; max-width: 600px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); text-align: left; font-family: 'Dancing Script', cursive; font-size: 20px; line-height: 1.6; color: #4a148c; }
+.close-btn { float: right; font-size: 28px; cursor: pointer; }
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+</style>
+</head>
+<body>
+
+<!-- Countdown Overlay -->
+<div id="countdownOverlay">
+  <h1>Happy Birthday Sanskruti 💖</h1>
+  <p>We are almost there...</p>
+  <p id="timer"></p>
+</div>
+
+<!-- Original content below -->
+<div id="intro">
+  <h1>🎉 Happy Birthday, Sanskruti 💖</h1>
+  <button onclick="startExperience()">Start Experience 🎶</button>
+</div>
+
+<section class="hero">
+  <h1>Happy Birthday, Mine Forever Sanskruti💖</h1>
+  <p>You are my world, my melody, my reason to smile every day.</p>
+</section>
+
+<section class="gallery">
+  <h2>My Favorite Memories</h2>
+  <p style="font-family:'Poppins',sans-serif; font-size:1em; color:#d81b60; margin-bottom:15px;">Swipe to see my favorite memories 💖</p>
+  <div class="flashcard-gallery" id="flashcardGallery">
+    <div class="flashcard"><img src="images/img1.jpg" alt="My Sunshine"/><div class="caption">My Sunshine ☀️</div></div>
+    <div class="flashcard"><img src="images/img2.jpg" alt="The Smile I Live For"/><div class="caption">The Smile I Live For 💕</div></div>
+    <div class="flashcard"><img src="images/img3.jpg" alt="My Queen"/><div class="caption">My Queen 👑</div></div>
+    <div class="flashcard"><img src="images/img4.jpg" alt="My Forever Happiness"/><div class="caption">My Forever Happiness ✨</div></div>
+    <div class="flashcard"><img src="images/img5.jpg" alt="The Beat of My Heart"/><div class="caption">The Beat of My Heart ❤️</div></div>
+    <div class="flashcard"><img src="images/img6.jpg" alt="My Safe Place"/><div class="caption">My Safe Place 🛡️</div></div>
+    <div class="flashcard"><img src="images/img7.jpg" alt="My Partner in Crime"/><div class="caption">My Partner in Crime 😍</div></div>
+    <div class="flashcard"><img src="images/img8.jpg" alt="My Endless Laughter"/><div class="caption">My Endless Laughter 😂</div></div>
+    <div class="flashcard"><img src="images/img9.jpg" alt="My Guiding Light"/><div class="caption">My Guiding Light ✨</div></div>
+    <div class="flashcard"><img src="images/img10.jpg" alt="My Forever Love"/><div class="caption">My Forever Love 💘</div></div>
+    <div class="flashcard"><img src="images/img11.jpg" alt="My Everything"/><div class="caption">My Everything 🌍</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>A Special Message</h2>
+  <div class="special-msg">
+    From the day you entered my life, everything has felt brighter.<br>
+    Every laugh, every moment, every memory with you is a treasure.<br>
+    On this special day, I just want to remind you that you’re not only my love but also my best friend, my safe place, and my everything.<br>
+    Happy Birthday, my dear. Forever yours.
+  </div>
+</section>
+
+<section>
+  <h2>Make a Wish 🎂✨</h2>
+  <div class="cake">🎂<span class="candle">🕯</span><span class="candle">🕯</span><span class="candle">🕯</span></div>
+  <button onclick="blowCandles()">Blow the candles</button>
+</section>
+
+<section class="timeline">
+  <h2>Our Journey</h2>
+  <div><strong>First time we met</strong> – A moment I’ll never forget ❤️</div>
+  <div><strong>Our favorite memory</strong> – Endless laughter together ✨</div>
+  <div><strong>Inside jokes</strong> – Just ours, forever 😍</div>
+</section>
+
+<section>
+  <h2>Here’s to Forever</h2>
+  <p>This year is just one of the many we’ll celebrate together. I promise to be by your side in every sunrise, every storm, and every victory. You are my forever.</p>
+</section>
+
+<section class="ending">
+  <div class="ending">Happy Birthday Once Again, My Queen ❤️</div>
+  <button onclick="showLetter()">Press for a Surprise 🎁</button>
+  <button onclick="playAudio('favSong')">Replay Surprise 🔁</button>
+</section>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeLetter()">&times;</span>
+    <h2>💌 A Letter for You 💌</h2>
+    <p>
+      Sanskruti,<br><br>
+      It’s been a while since we last talked — Jan 14 feels like a lifetime ago.  
+      Not a single day passes without me thinking about you, missing your smile,  
+      and wishing I could share even the smallest moments with you.<br><br>
+      Even in the silence, my love for you hasn’t faded — it’s only grown stronger.  
+      You’ll always be my safe place, my forever person, and the most beautiful part of my story.<br><br>
+      Happy Birthday, my Queen. No matter the distance or the pause,  
+      you’ll always be in my heart, todayand always.<br><br>
+      Forever yours. 
+    </p>
+  </div>
+</div>
+
+<div class="effect-container" id="effects"></div>
+
+<audio id="bgMusic" loop>
+  <source src="audio/bgMusic.mp3" type="audio/mpeg">
+</audio>
+<audio id="candleSong">
+  <source src="audio/candleSong.mp3" type="audio/mpeg">
+</audio>
+<audio id="favSong">
+  <source src="audio/favSong.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// ===== Countdown Lock =====
+const countdownOverlay = document.getElementById('countdownOverlay');
+const countdownTimer = document.getElementById('timer');
+
+// Set target date: 12 AM, 12 Oct 2025
+const targetDate = new Date('October 1, 2025 10:29:00').getTime();
+
+const countdownInterval = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance <= 0) {
+    // Countdown finished, hide overlay
+    countdownOverlay.style.display = 'none';
+    clearInterval(countdownInterval);
+  } else {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+    countdownTimer.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+}, 1000);
+
+// ===== Original Experience Functions =====
+function startExperience(){
+  document.getElementById("intro").style.display="none";
+  playAudio('bgMusic');
+  startEffects();
+}
+
+function playAudio(id){
+  const audios = ['bgMusic','candleSong','favSong'];
+  audios.forEach(a=>{
+    const audioEl = document.getElementById(a);
+    if(a===id){ audioEl.currentTime=0; audioEl.play(); } 
+    else { audioEl.pause(); }
+  });
+}
+
+function blowCandles(){
+  document.querySelectorAll('.candle').forEach(c=>{
+    c.classList.add('out');
+  });
+  playAudio('candleSong');
+}
+
+// Falling emojis
+function startEffects(){
+  const container = document.getElementById('effects');
+  const emojis = ['✨','💖','🎉','🎊','❤️'];
+  function spawnElement(){
+    const el = document.createElement('div');
+    const type = emojis[Math.floor(Math.random()*emojis.length)];
+    el.innerText = type;
+    el.className = 'confetti';
+    if(type==='💖' || type==='❤️') el.className='heart';
+    if(type==='✨') el.className='sparkle';
+    el.style.left = Math.random()*100+'%';
+    el.style.fontSize = 14+Math.random()*18+'px';
+    el.style.animationDuration = (6+Math.random()*6)+'s';
+    el.style.animationName = 'fallSway';
+    container.appendChild(el);
+    setTimeout(()=>{ container.removeChild(el); }, 12000);
+    setTimeout(spawnElement, 1200 + Math.random()*1200);
+  }
+  for(let i=0;i<5;i++){ setTimeout(spawnElement, i*400); }
+}
+
+// Popup functions
+function showLetter() {
+  document.getElementById("popup").style.display = "block";
+  playAudio('favSong');
+}
+function closeLetter() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("favSong").pause();
+  document.getElementById("favSong").currentTime = 0;
+}
+
+// Flashcard swipe
+let startX = 0, currentIndex = 0;
+const flashcards = document.querySelectorAll(".flashcard");
+const gallery = document.getElementById("flashcardGallery");
+
+function showCard(index){
+  flashcards.forEach((card, i) => card.style.display = i === index ? "block" : "none");
+}
+showCard(currentIndex);
+
+gallery.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
+gallery.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if(endX < startX - 30){ currentIndex = (currentIndex + 1) % flashcards.length; }
+  else if(endX > startX + 30){ currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length; }
+  showCard(currentIndex);
+});
+
+// Mouse drag support
+let isDown = false, mouseX = 0;
+gallery.addEventListener("mousedown", e => { isDown = true; mouseX = e.clientX; });
+gallery.addEventListener("mouseup", e => {
+  if(!isDown) return;
+  let endX = e.clientX;
+  if(endX < mouseX - 30){ currentIndex = (currentIndex + 1) % flashcards.length; }
+  else if(endX > mouseX + 30){ currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length; }
+  showCard(currentIndex); isDown=false;
+});
+</script>
+</body>
+</html>
